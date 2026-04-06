@@ -86,6 +86,7 @@ class User extends Authenticatable implements MustVerifyEmail
             ],
             'member' => [
                 'workspace.view',
+                'workspace.update',
             ],
         ];
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Project\BoardController;
 use App\Http\Controllers\Project\ProjectController;
 use App\Http\Controllers\Project\TaskController;
 use App\Http\Controllers\Workspace\WorkspaceController;
+use App\Http\Controllers\Workspace\WorkspaceMembership;
 use App\Models\User;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -46,6 +47,8 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('workspaces', WorkspaceController::class);
+
+    Route::get('workspaces/{workspace}/members', [WorkspaceMembership::class, 'members']);
 
     Route::scopeBindings()->group(function () {
         Route::apiResource('workspaces.projects', ProjectController::class);

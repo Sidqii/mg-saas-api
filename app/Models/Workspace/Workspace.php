@@ -25,7 +25,10 @@ class Workspace extends Model
     public function users()
     {
         return $this->belongsToMany(User::class)
-            ->withPivot(['role', 'joined_at']);
+            ->withPivot([
+                'role',
+                'joined_at'
+            ]);
     }
 
     public function projects()

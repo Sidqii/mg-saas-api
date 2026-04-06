@@ -22,7 +22,10 @@ return new class extends Migration
 
             $table->string('role')->default('member');
             $table->timestamp('joined_at')->useCurrent();
-            $table->primary(['workspace_id', 'user_id']);
+            $table->primary([
+                'workspace_id',
+                'user_id'
+            ]);
         });
     }
 
